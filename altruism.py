@@ -165,9 +165,6 @@ class _CostState:
 _cost_state = _CostState()
 
 
-# ---------------------------------------------------------------------------
-# Statistics — single pass for both happy counts and MSR
-# ---------------------------------------------------------------------------
 
 def count_happy_and_msr():
     happy = unhappy = 0
@@ -200,9 +197,6 @@ def mean_similarity_ratio():
     return msr
 
 
-# ---------------------------------------------------------------------------
-# Simulation step
-# ---------------------------------------------------------------------------
 
 def run_round():
     unhappy = []
@@ -264,9 +258,6 @@ def run_round():
     return moves
 
 
-# ---------------------------------------------------------------------------
-# Cost (full scan — used for final reporting only)
-# ---------------------------------------------------------------------------
 
 def cost(g=None, alpha=0.5, threshold=0.3, msr_target=0.5):
     if g is None:
@@ -298,9 +289,6 @@ def cost(g=None, alpha=0.5, threshold=0.3, msr_target=0.5):
     return alpha * (1 - fh) ** 2 + (1 - alpha) * (msr - msr_target) ** 2
 
 
-# ---------------------------------------------------------------------------
-# Animation
-# ---------------------------------------------------------------------------
 
 def generate_history(rounds=20):
     history = []
