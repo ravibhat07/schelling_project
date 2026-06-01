@@ -61,10 +61,7 @@ def _cost_from_parts(happy, unhappy, sum_r, num_r, alpha, msr_target):
 
 
 class _CostState:
-    """
-    Incrementally tracks cost() components so altruist candidate moves
-    pay O(16 cells) instead of O(L²) per evaluation.
-    """
+ 
 
     def __init__(self, alpha=0.5, threshold=0.3, msr_target=0.5):
         self.alpha = alpha
@@ -95,10 +92,7 @@ class _CostState:
         )
 
     def _local_delta(self, sx, sy, dx, dy, agent_type):
-        """
-        Compute (dh, du, dsum_r, dnum_r) for moving agent_type (sx,sy)→(dx,dy).
-        Temporarily modifies grid, then reverts.
-        """
+ 
         affected = set(_nbr_coords(sx, sy)) | set(_nbr_coords(dx, dy))
         affected.add((sx, sy))
         affected.add((dx, dy))
